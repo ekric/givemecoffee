@@ -1,54 +1,34 @@
 import { Component } from '@angular/core';
 
+import { Account } from '../model/account.model';
+import { AccountStub } from '../model/account.stub';
+import { Tools } from '../tools';
+import { Validate } from '../model/validate.model';
+
 @Component({
   selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  templateUrl: './book.component.html'
 })
+
 export class BookComponent {
-  accounts = [];
+  accounts: Account[] = [];
   errorMessages = [];
-  names = [];
-  newAccount: { key: string, value: string };
-  register = false;
-  selectAccount: { key: string, value: number };
-  selectedName: string;
+  selectedAccount: Account;
+  successMessages = [];
+
+  constructor() {
+    this.accounts = AccountStub.accounts;
+  }
 
   bookCoffee() {
-    if (this.validate(this.selectedName, 'Please select your name from the list!')) {
-      this.selectAccount = this.accounts.find(account => account.key === this.selectedName);
-      this.selectAccount.value += 1;
-    }
-  }
-
-  showBalance() {
-    if (this.validate(this.selectedName, 'Please select your name from the list!')) {
-      this.selectAccount = this.accounts.find(account => account.key === this.selectedName);
-    }
-  }
-
-  switchView() {
-    this.errorMessages = [];
-    this.register = true;
-    let key = Date.now().toString();
-    this.newAccount = { key: key, value: null };
-  }
-
-  registerAccount() {
-    if (this.validate(this.newAccount.value, 'Please enter your name!')) {
-      this.accounts.push({ key: this.newAccount.key, value: 0 });
-      this.names.push(this.newAccount);
-      this.register = false;
-    }
-  }
-
-  validate(object, errorMessages) {
-    this.errorMessages = [];
-    if (object) {
-      return true;
-    } else {
-      this.errorMessages.push(errorMessages);
-      return false;
+    this.successMessages = [];
+    this.errorMessages = Tools.validate([new Validate(this.selectedAccount, 'ERROR_BOOK_NAME_EMPTY')]);
+    if (!this.errorMessages) {
+      this.selectedAccount = this.accounts.find(account => account.id === this.selectedAccount.id);
+      this.selectedAccount.balance += 1;
+      Tools.getTranslation('SUCCESS_BOOKED').subscribe(result => {
+        this.successMessages.push(result);
+      });
     }
   }
 }

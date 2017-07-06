@@ -1,0 +1,31 @@
+<md-card class="coffee-card">
+  <md-card-header>
+    <md-card-title>{{ 'REGISTER_TO_BOOK_COFFEE' | translate }}:</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <table>
+      <tr>
+        <td>
+          <md-input-container>
+            <input mdInput required placeholder="{{ 'PLACEHOLDER_NAME' | translate }}" [(ngModel)]="newAccount.name" name="newAccountName">
+          </md-input-container>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <md-input-container>
+            <input mdInput required placeholder="{{ 'PLACEHOLDER_EMAIL' | translate }}" [(ngModel)]="newAccount.email" name="newAccountEmail">
+          </md-input-container>
+        </td>
+      </tr>
+    </table>
+    <md-list *ngIf="(errorMessages)?.length > 0">
+      <md-list-item *ngFor="let em of errorMessages">
+        <span style="color: red">{{ em }}</span>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+  <md-card-actions>
+    <button (click)="registerAccount()" md-raised-button>{{ 'REGISTER' | translate }}</button>
+  </md-card-actions>
+</md-card>

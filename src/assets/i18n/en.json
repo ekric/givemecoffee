@@ -1,0 +1,14 @@
+{
+  "BOOK_COFFEE": "Book coffee",
+  "BOOKED_COFFEES": "Booked coffees",
+  "ERROR_ACCOUNT_NAME_EMPTY": "Please enter your name!",
+  "ERROR_ACCOUNT_EMAIL_EMPTY": "Please enter your email!",
+  "ERROR_BOOK_NAME_EMPTY": "Please select your name from the list!",
+  "PLACEHOLDER_EMAIL": "your email",
+  "PLACEHOLDER_NAME": "your name",
+  "REGISTER": "Register",
+  "REGISTER_TO_BOOK_COFFEE": "Register to book coffee",
+  "SELECT_YOUR_NAME": "Please select your name",
+  "SUCCESS_BOOKED": "Coffee was booked!",
+  "WELCOME_TO": "Welcome to {{ value }}"
+}

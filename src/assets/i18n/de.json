@@ -1,0 +1,14 @@
+{
+  "BOOK_COFFEE": "Kaffee buchen",
+  "BOOKED_COFFEES": "Gebuchte Kaffees",
+  "ERROR_ACCOUNT_NAME_EMPTY": "Bitte geben Sie Ihren Namen ein!",
+  "ERROR_ACCOUNT_EMAIL_EMPTY": "Bitte geben Sie Ihre E-Mail Adresse ein!",
+  "ERROR_BOOK_NAME_EMPTY": "Bitte wählen Sie Ihren Namen aus der Liste aus!",
+  "PLACEHOLDER_EMAIL": "Ihre E-Mail Adresse",
+  "PLACEHOLDER_NAME": "Ihr Name",
+  "REGISTER": "Registrieren",
+  "REGISTER_TO_BOOK_COFFEE": "Registrieren um Kaffee zu buchen",
+  "SELECT_YOUR_NAME": "Bitte wählen Sie Ihren Namen aus:",
+  "SUCCESS_BOOKED": "Kaffee wurde gebucht!",
+  "WELCOME_TO": "Willkommen zu {{ value }}"
+}

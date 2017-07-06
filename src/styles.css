@@ -4,3 +4,8 @@
 html {
   background: url(assets/background.jpg);
 }
+
+.coffee-card {
+  width: 400px;
+  margin: auto;
+}

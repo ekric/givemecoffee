@@ -1,43 +1,27 @@
-<form>
-  <md-card class="book-card" *ngIf="register === false">
-    <md-card-header>
-      <md-card-title>Select your name:</md-card-title>
-    </md-card-header>
-    <md-card-content style="margin-top: 20px">
-      <md-select placeholder="Name" [(ngModel)]="selectedName" name="name">
-        <md-option *ngFor="let name of names" [value]="name.key">
-          {{ name.value }}
-        </md-option>
-      </md-select>
-      <button (click)="switchView()" md-button>Register</button>
-      <md-list *ngIf="(errorMessages)?.length > 0">
-        <md-list-item *ngFor="let em of errorMessages">
-          <span style="color: red">{{ em }}</span>
-        </md-list-item>
-      </md-list>
-      <div *ngIf="(selectAccount)"><br/>Booked cups: {{ selectAccount.value }}</div>
-    </md-card-content>
-    <md-card-actions>
-      <button (click)="bookCoffee()" md-button>Book coffee</button>
-      <button (click)="showBalance()" md-button>Show balance</button>
-    </md-card-actions>
-  </md-card>
-  <md-card class="book-card" *ngIf="register === true">
-    <md-card-header>
-      <md-card-title>Register to book coffee:</md-card-title>
-    </md-card-header>
-    <md-card-content style="margin-top: 20px">
-      <md-input-container>
-        <input mdInput required placeholder="your name" [(ngModel)]="newAccount.value" name="newAccountName">
-      </md-input-container>
-      <md-list *ngIf="(errorMessages)?.length > 0">
-        <md-list-item *ngFor="let em of errorMessages">
-          <span style="color: red">{{ em }}</span>
-        </md-list-item>
-      </md-list>
-    </md-card-content>
-    <md-card-actions>
-      <button (click)="registerAccount()" md-button>Register</button>
-    </md-card-actions>
-  </md-card>
-</form>
+<md-card class="coffee-card">
+  <md-card-header>
+    <md-card-title>{{ 'SELECT_YOUR_NAME' | translate }}</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <md-select placeholder="Name" [(ngModel)]="selectedAccount" name="name">
+      <md-option *ngFor="let account of accounts" [value]="account">
+        {{ account.name }}
+      </md-option>
+    </md-select>
+    <button routerLink="/register" md-button>{{ 'REGISTER' | translate }}</button>
+    <md-list *ngIf="(errorMessages)?.length > 0">
+      <md-list-item *ngFor="let em of errorMessages">
+        <span style="color: red">{{ em }}</span>
+      </md-list-item>
+    </md-list>
+    <div *ngIf="(selectedAccount)"><br/>{{ 'BOOKED_COFFEES' | translate }}: {{ selectedAccount.balance }}</div>
+  </md-card-content>
+  <md-card-actions>
+    <button (click)="bookCoffee()" md-raised-button>{{ 'BOOK_COFFEE' | translate }}</button>
+  </md-card-actions>
+  <md-list *ngIf="(successMessages)?.length > 0">
+    <md-list-item *ngFor="let sm of successMessages">
+      <span style="color: green">{{ sm }}</span>
+    </md-list-item>
+  </md-list>
+</md-card>
