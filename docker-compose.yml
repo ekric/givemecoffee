@@ -1,6 +1,6 @@
 version: '2'
 services:
-  frontend:
+  givemecoffee-frontend:
     build: .
     command: bash -c 'cd /opt/app && npm install && npm start'
     ports:
