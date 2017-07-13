@@ -1,8 +1,8 @@
 version: '2'
 services:
   frontend:
-    build: ./frontend
-    command: bash -c 'cd /opt/app && npm install && npm start'
+    image: node:8-alpine
+    command: sh -c 'cd /opt/app && npm install && npm start'
     ports:
       - '4200:4200'
     volumes:
